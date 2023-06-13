@@ -1,0 +1,30 @@
+# @title: Install build tools
+
+# @hosts: all
+- hosts: all #specify the host(s)
+  become: yes #elevate privileges
+
+tasks:
+  # @name: Install gcc tools
+  # @comment: Tools needed to compile code
+  # @code: yum install gcc gcc-g++ make -y
+  # @input: code snippet of the input
+  # @output: code snippet of the output
+  - name: Install gcc tools
+    yum:
+      name:
+        - gcc
+        - gcc-g++
+        - make
+      state: present
+
+  # @name: Install vim text editor 
+  # @comment: Tools needed to edit code
+  # @code: yum install vim -y
+  # @input: code snippet of the input
+  # @output: code snippet of the output
+  - name: Install vim
+    yum:
+      name:
+        - vim
+      state: present
